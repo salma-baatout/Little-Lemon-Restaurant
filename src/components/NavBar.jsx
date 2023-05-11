@@ -59,6 +59,9 @@ function BasicExample() {
               Reservation
             </Nav.Link>
 
+            <Nav.Link href="/Cart" className="navMenu">
+              Cart
+            </Nav.Link>
             <Nav.Link href="/contact" className="navMenu">
               Contact Us
             </Nav.Link>

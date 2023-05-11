@@ -1,25 +1,56 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import {  Form } from "react-bootstrap";
 import Cart from "./Cart";
 import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
+import { Link } from "react-router-dom";
 
 const Appetizers = (props) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const storedCart = localStorage.getItem("cart");
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
+  
+  //const [cart, setCart] = useState([]);
+  const [sortOrder, setSortOrder] = useState("price");
+ 
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cart");
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+  }, []);
+
+
+  
   
   const addToCart = (item) => {
-    setCart([...cart, item]);
+    const updatedCart = [...cart, item];
+  setCart(updatedCart);
+  localStorage.setItem("cart", JSON.stringify(updatedCart));
     
   };
 
   const handleRemoveItem = (itemToRemove) => {
-    setCart((prevCart) =>
-      prevCart.filter((item) => item !== itemToRemove)
-    );
+    const index = cart.findIndex((item) => item === itemToRemove);
+    if (index !== -1) {
+      const newCart = [...cart];
+      newCart.splice(index, 1);
+      setCart(newCart);
+      localStorage.setItem("cart", JSON.stringify(newCart));
+    }
+  };
+ // const handleClearCart = () => {
+  //  setCart([]);
+   // localStorage.removeItem("cart");
+ // };
+
+  const clearCart = () => {
+    setCart([]);
   };
 
-  const [sortOrder, setSortOrder] = useState("price");
 
+  
    const appetizer = props.data
       .sort((a, b) => {
         if (sortOrder === "calories") {
@@ -85,14 +116,16 @@ const Appetizers = (props) => {
             <h3 className="cartetitre">{item.name}</h3>
             <p className="cartecalories">{item.calories} Calories</p>
             <p className="carteprice">{item.price}  $ </p>
-            <button className="btnAdd" disabled={item.disabled} onClick={() => addToCart(item)}> Add to Cart</button>
+            <button className="btnAdd" disabled={item.disabled} onClick={() => addToCart(item)}>Order</button>
 
             
           </div>
         ))}
       </Carousel>
-      <div><Cart  cart={cart} onRemoveItem={handleRemoveItem} /></div>
-
+      <div><Cart  cart={cart} onRemoveItem={handleRemoveItem} onClearCart={clearCart} /></div>
+      <Link to="/Cart">
+        <button className="btnAdd">Cart</button>
+      </Link>
     </div>
   );
 };

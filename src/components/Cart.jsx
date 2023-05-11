@@ -1,22 +1,27 @@
 import React from 'react'
 
-const Cart = ({ cart, onRemoveItem }) => {
+const Cart = ({ cart, onRemoveItem ,onClearCart }) => {
+  console.log("Cart:", cart); 
   const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
  
-  
+ 
+
   
   return (
     <div className="cart">
-      <h2>Cart</h2>
+      <h2>Orders</h2>
       <ul>
         {cart.map((item, index) => (
           <li className='list' key={index}>
             {item.name} - {item.price} $
-            <button className='btnRemove' onClick={() => onRemoveItem(item)}>Remove</button>
+            <button className='btnRemove' onClick={() => onRemoveItem(item)}> Cancel </button>
           </li>
         ))}
       </ul>
       <p>Total : {totalPrice} $</p>
+      <button onClick={() => onClearCart()} className="cart-clear-button">
+            Clear Cart
+          </button>
     </div>
   );
 };
