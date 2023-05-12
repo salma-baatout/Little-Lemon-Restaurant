@@ -19,7 +19,7 @@ const Cart = ({ cart, onRemoveItem ,onClearCart }) => {
         ))}
       </ul>
       <p>Total : {totalPrice} $</p>
-      <button onClick={() => onClearCart()} className="cart-clear-button">
+      <button onClick={() => onClearCart()} className="btnAdd">
             Clear Cart
           </button>
     </div>

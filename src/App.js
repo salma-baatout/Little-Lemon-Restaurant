@@ -1,26 +1,13 @@
 import './App.css';
 import {BrowserRouter,Route,Routes} from 'react-router-dom';
 import Home from './components/Home';
-import Cart from './components/Cart';
+import CartPage from './components/CartPage';
 import React, { useState,useEffect } from "react";
 
 function App() {
  
  
-  const handleRemoveItem = (itemToRemove) => {
-    const index = cart.findIndex((item) => item === itemToRemove);
-    if (index !== -1) {
-      const newCart = [...cart];
-      newCart.splice(index, 1);
-      setCart(newCart);
-      localStorage.setItem("cart", JSON.stringify(newCart));
-    }
-  };
-
-  const handleClearCart = () => {
-    setCart([]);
-    localStorage.removeItem("cart");
-  };
+  
 
 
   const [cart, setCart] = useState(() => {
@@ -37,7 +24,7 @@ function App() {
       <BrowserRouter>
       <Routes>
       <Route path="/" element={<Home />}></Route>
-      <Route path="/Cart" element={<Cart cart={cart} onRemoveItem={handleRemoveItem} onClearCart={handleClearCart} />}></Route>
+      <Route path="/CartPage" element={<CartPage  />}></Route>
 
       </Routes>
       </BrowserRouter>

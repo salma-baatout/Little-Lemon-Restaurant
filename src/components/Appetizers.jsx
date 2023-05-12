@@ -21,9 +21,6 @@ const Appetizers = (props) => {
     }
   }, []);
 
-
-  
-  
   const addToCart = (item) => {
     const updatedCart = [...cart, item];
   setCart(updatedCart);
@@ -40,15 +37,10 @@ const Appetizers = (props) => {
       localStorage.setItem("cart", JSON.stringify(newCart));
     }
   };
- // const handleClearCart = () => {
-  //  setCart([]);
-   // localStorage.removeItem("cart");
- // };
-
-  const clearCart = () => {
-    setCart([]);
-  };
-
+  const handleClearCart = () => {
+   setCart([]);
+    localStorage.removeItem("cart");
+ };
 
   
    const appetizer = props.data
@@ -122,8 +114,11 @@ const Appetizers = (props) => {
           </div>
         ))}
       </Carousel>
-      <div><Cart  cart={cart} onRemoveItem={handleRemoveItem} onClearCart={clearCart} /></div>
-      <Link to="/Cart">
+
+      <div><Cart  cart={cart} onRemoveItem={handleRemoveItem} onClearCart={handleClearCart} /></div>
+      
+      
+      <Link to="/CartPage">
         <button className="btnAdd">Cart</button>
       </Link>
     </div>
