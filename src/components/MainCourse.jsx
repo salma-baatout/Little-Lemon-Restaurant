@@ -4,8 +4,9 @@ import Cart from "./Cart";
 import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
 import { Link } from "react-router-dom";
+import { maincourse } from "./dishes";
 
-const Appetizers = (props) => {
+const MainCourse = (props) => {
   const [cart, setCart] = useState(() => {
     const storedCart = localStorage.getItem("cart");
     return storedCart ? JSON.parse(storedCart) : [];
@@ -27,8 +28,23 @@ const Appetizers = (props) => {
   localStorage.setItem("cart", JSON.stringify(updatedCart));
     
   };
+
+  const handleRemoveItem = (itemToRemove) => {
+    const index = cart.findIndex((item) => item === itemToRemove);
+    if (index !== -1) {
+      const newCart = [...cart];
+      newCart.splice(index, 1);
+      setCart(newCart);
+      localStorage.setItem("cart", JSON.stringify(newCart));
+    }
+  };
+  const handleClearCart = () => {
+   setCart([]);
+    localStorage.removeItem("cart");
+ };
+
   
-   const appetizer = props.data
+   const maincourse = props.data
       .sort((a, b) => {
         if (sortOrder === "calories") {
           return a.calories - b.calories;
@@ -63,7 +79,7 @@ const Appetizers = (props) => {
   return (
     <div className="appetizer">
       <div>
-        <h1 className="langueTitle">Appetizers</h1>
+        <h1 className="langueTitle">Main Course</h1>
       </div>
 
       <div className="line"></div>
@@ -87,7 +103,7 @@ const Appetizers = (props) => {
       
       
       <Carousel responsive={responsive}>
-        {appetizer.map((item, index) => (
+        {maincourse.map((item, index) => (
           <div className="carte" key={index}>
             <img src={item.image} className="cartepic" alt={item.name} />
             <h3 className="cartetitre">{item.name}</h3>
@@ -101,18 +117,8 @@ const Appetizers = (props) => {
       </Carousel>
 
       
-      
-
     </div>
   );
 };
 
-export default Appetizers;
-/*
-<div><Cart  cart={cart} onRemoveItem={handleRemoveItem} onClearCart={handleClearCart} /></div>
-      
-      
-      <Link to="/CartPage">
-        <button className="btnAdd">Cart ({cart.length})</button>
-      </Link> */
-      
+export default MainCourse;

@@ -20,10 +20,7 @@ function BasicExample() {
     });
   }, []);
   
-  const [cart] = useState(() => {
-    const storedCart = localStorage.getItem('cart');
-    return storedCart ? JSON.parse(storedCart) : [];
-  });
+  
 
   return (
     <Navbar bg="white" expand="lg" sticky="top" fixed="top">
@@ -66,7 +63,7 @@ function BasicExample() {
             </Nav.Link>
 
             <Nav.Link href="/CartPage" className="navMenu">
-              Cart ({cart.length})
+              Cart
             </Nav.Link>
             <Nav.Link href="/contact" className="navMenu">
               Contact Us
