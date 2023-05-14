@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 
 function BasicExample() {
   useEffect(() => {
@@ -19,6 +19,12 @@ function BasicExample() {
       });
     });
   }, []);
+  
+  const [cart] = useState(() => {
+    const storedCart = localStorage.getItem('cart');
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
+
   return (
     <Navbar bg="white" expand="lg" sticky="top" fixed="top">
       <Container>
@@ -59,8 +65,8 @@ function BasicExample() {
               Reservation
             </Nav.Link>
 
-            <Nav.Link href="/Cart" className="navMenu">
-              Cart
+            <Nav.Link href="/CartPage" className="navMenu">
+              Cart ({cart.length})
             </Nav.Link>
             <Nav.Link href="/contact" className="navMenu">
               Contact Us

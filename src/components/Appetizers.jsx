@@ -119,7 +119,7 @@ const Appetizers = (props) => {
       
       
       <Link to="/CartPage">
-        <button className="btnAdd">Cart</button>
+        <button className="btnAdd">Cart ({cart.length})</button>
       </Link>
     </div>
   );
