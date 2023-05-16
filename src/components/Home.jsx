@@ -1,13 +1,11 @@
 import React , { useState ,useEffect}from 'react'
 import NavBar from './NavBar'
 import Appetizers from './Appetizers'
-import { appetizer, maincourse } from './dishes'
+import { appetizer, dessert, maincourse } from './dishes'
 import  MainCourse from './MainCourse'
+import  Dessert from './Dessert'
 import Cart from './Cart'
 import { Link } from "react-router-dom";
-
-
-
 
 const Home = () => {
 
@@ -16,14 +14,21 @@ const Home = () => {
     return storedCart ? JSON.parse(storedCart) : [];
   });
   
-  useEffect(() => {
+    useEffect(() => {
+      
     const storedCart = localStorage.getItem("cart");
     if (storedCart) {
       setCart(JSON.parse(storedCart));
     }
-  }, [cart]);
-
+  }, []);  
   
+  const addToCart = (item) => {
+    const updatedCart = [...cart, item];
+  setCart(updatedCart);
+  localStorage.setItem("cart", JSON.stringify(updatedCart));
+    
+  };
+
   const handleRemoveItem = (itemToRemove) => {
     const index = cart.findIndex((item) => item === itemToRemove);
     if (index !== -1) {
@@ -38,31 +43,29 @@ const Home = () => {
     localStorage.removeItem("cart");
  };
 
- const addToCart = (item) => {
-  const updatedCart = [...cart, item];
-setCart(updatedCart);
-localStorage.setItem("cart", JSON.stringify(updatedCart));
-  
-};
+ 
 
   return (
     <div>
     <div id="navbar">
-        <NavBar/>
+        <NavBar cart={cart} />
     </div>
     <div>
-    <Appetizers data={appetizer}/>
+    <Appetizers data={appetizer} addToCart={addToCart}/>
    </div>
    <div>
-    <MainCourse data={maincourse}/>
+    <MainCourse data={maincourse} addToCart={addToCart}/>
+   </div>
+   <div>
+    <Dessert data={dessert} addToCart={addToCart}/>
    </div>
 
 
-   <div><Cart  cart={cart} onRemoveItem={handleRemoveItem} onClearCart={handleClearCart} onAddToCart={addToCart}/></div>
+   <div><Cart  cart={cart} onRemoveItem={handleRemoveItem} onClearCart={handleClearCart} /></div>
       
       
   <Link to="/CartPage">
-  <button className="btnAdd">Cart ({cart.length})</button>
+  <button className="btnAdd">Cart ({cart ? cart.length : 0})</button>
   </Link>
 
     </div>

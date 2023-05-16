@@ -4,15 +4,14 @@ import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
 
 
-const MainCourse = (props) => {
-  
+const Dessert = (props) => {
+
   const handleAddToCart = (item) => {
     props.addToCart(item);
   };
 
-  const [sortOrder, setSortOrder] = useState("price");
-
-   const maincourse = props.data
+ const [sortOrder, setSortOrder] = useState("price");
+   const dessert = props.data
       .sort((a, b) => {
         if (sortOrder === "calories") {
           return a.calories - b.calories;
@@ -47,7 +46,7 @@ const MainCourse = (props) => {
   return (
     <div className="appetizer">
       <div>
-        <h1 className="langueTitle">Main Course</h1>
+        <h1 className="langueTitle">Desserts</h1>
       </div>
 
       <div className="line"></div>
@@ -71,7 +70,7 @@ const MainCourse = (props) => {
       
       
       <Carousel responsive={responsive}>
-        {maincourse.map((item, index) => (
+        {dessert.map((item, index) => (
           <div className="carte" key={index}>
             <img src={item.image} className="cartepic" alt={item.name} />
             <h3 className="cartetitre">{item.name}</h3>
@@ -85,8 +84,12 @@ const MainCourse = (props) => {
       </Carousel>
 
       
+      
+
     </div>
   );
 };
 
-export default MainCourse;
+export default Dessert;
+
+      

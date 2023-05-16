@@ -2,9 +2,10 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { useEffect,useState } from "react";
+import { useEffect } from "react";
 
-function BasicExample() {
+function BasicExample({cart}) {
+
   useEffect(() => {
     const links = document.querySelectorAll("nav a");
     links.forEach((link) => {
@@ -63,7 +64,7 @@ function BasicExample() {
             </Nav.Link>
 
             <Nav.Link href="/CartPage" className="navMenu">
-              Cart
+              Cart ({cart ? cart.length : 0})
             </Nav.Link>
             <Nav.Link href="/contact" className="navMenu">
               Contact Us

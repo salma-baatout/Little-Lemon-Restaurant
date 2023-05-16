@@ -1,12 +1,12 @@
-import React from 'react'
+import React , { useState ,useEffect} from 'react'
 
 const Cart = ({ cart, onRemoveItem ,onClearCart }) => {
+  
+
   console.log("Cart:", cart); 
   const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
- 
- 
-
   
+   
   return (
     <div className="cart">
       <h2>Orders</h2>

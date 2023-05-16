@@ -1,32 +1,16 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState } from "react";
 import {  Form } from "react-bootstrap";
-import Cart from "./Cart";
 import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
-import { Link } from "react-router-dom";
+
 
 const Appetizers = (props) => {
-  const [cart, setCart] = useState(() => {
-    const storedCart = localStorage.getItem("cart");
-    return storedCart ? JSON.parse(storedCart) : [];
-  });
-  
-  //const [cart, setCart] = useState([]);
-  const [sortOrder, setSortOrder] = useState("price");
- 
-  useEffect(() => {
-    const storedCart = localStorage.getItem("cart");
-    if (storedCart) {
-      setCart(JSON.parse(storedCart));
-    }
-  }, []);
 
-  const addToCart = (item) => {
-    const updatedCart = [...cart, item];
-  setCart(updatedCart);
-  localStorage.setItem("cart", JSON.stringify(updatedCart));
-    
+  const handleAddToCart = (item) => {
+    props.addToCart(item);
   };
+
+  const [sortOrder, setSortOrder] = useState("price");
   
    const appetizer = props.data
       .sort((a, b) => {
@@ -93,7 +77,7 @@ const Appetizers = (props) => {
             <h3 className="cartetitre">{item.name}</h3>
             <p className="cartecalories">{item.calories} Calories</p>
             <p className="carteprice">{item.price}  $ </p>
-            <button className="btnAdd" disabled={item.disabled} onClick={() => addToCart(item)}>Order</button>
+            <button className="btnAdd" disabled={item.disabled} onClick={() => handleAddToCart(item)}>Order</button>
 
             
           </div>
@@ -108,11 +92,5 @@ const Appetizers = (props) => {
 };
 
 export default Appetizers;
-/*
-<div><Cart  cart={cart} onRemoveItem={handleRemoveItem} onClearCart={handleClearCart} /></div>
-      
-      
-      <Link to="/CartPage">
-        <button className="btnAdd">Cart ({cart.length})</button>
-      </Link> */
+
       

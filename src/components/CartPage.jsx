@@ -29,11 +29,12 @@ const CartPage = () => {
     
       useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart));
-      }, [cart]);
+      }, [cart]); 
+
 
   return (
     <div>
-        <NavBar/>
+        <NavBar cart={cart}/>
         <Cart cart={cart} onRemoveItem={handleRemoveItem} onClearCart={handleClearCart}/>
     </div>
   )

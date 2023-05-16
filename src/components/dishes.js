@@ -75,8 +75,41 @@ let appetizer=[
           price:23,
           image :'images/ratatou.png'
         },
-        
-      
       ]
-  
       export  {maincourse}
+
+      let dessert=[
+        {   id:0,
+            name: "Cheesecake",
+            calories: 515,
+            price:27,
+            image :'images/cheesecake.png'
+          },
+          { id:1,
+            name: "Chacolate Crêpe",
+            calories: 330,
+            price:55,
+            image :'images/crepe.png'
+        
+          },
+          { id:2,
+            name: "Tiramisu",
+            calories: 255,
+            price:22,
+            image :'images/tiramisu.png'
+        
+          },
+          { id:3,
+            name: "Crême brulée",
+            calories: 320,
+            price:20,
+            image :'images/creme.png'
+          },
+          { id:4,
+            name: "Fruits Salad",
+            calories: 280,
+            price:23,
+            image :'images/fruit.png'
+          },
+        ]
+        export  {dessert}
