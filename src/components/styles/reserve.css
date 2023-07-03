@@ -1,0 +1,15 @@
+.reserve{
+/*background-image: url("https://toohotel.com/wp-content/uploads/2022/09/TOO_restaurant_Panoramique_vue_Paris_Seine_Tour_Eiffel_2.jpg");*/
+background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.73)),  url('restaurant.jpg');
+width: 100%;
+background-size: cover;
+}
+
+
+
+.text {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: #fff;
+    width: 90%;
+}

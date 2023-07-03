@@ -59,7 +59,7 @@ function BasicExample({cart}) {
             </NavDropdown>
 
             
-            <Nav.Link href="/reservation" className="navMenu">
+            <Nav.Link href="/reserve" className="navMenu">
               Reservation
             </Nav.Link>
 
