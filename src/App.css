@@ -1,63 +1,28 @@
-/*NavBar*/
-.navPic {
-  height: 50px;
-  margin-bottom: 1.2rem;
-  margin-top: 0.7rem;
-}
-.navbar-nav {
-  font-weight: 600;
-}
-.navMenu {
-  color: #292929bb;
-  font-family: "Darby Sans Web";
-  margin-bottom: -5px;
-}
-.NavLogo {
-  height: 50px;
-}
-.NavTitle {
-  color: #8a1538;
-  font-family: "Darby Sans Web";
-  margin-bottom: -1px;
-}
-.NavTitle:hover {
-  color: #af224c;
-}
 
 /*Appetizer*/
-
-.btnRemove {
-  background-color: #ffffff;
-  border-radius: 17px;
-  border: 1px solid #8a1538;
-  display: inline-block;
-  cursor: pointer;
-  color: #8a1538;
-  font-family: "Darby Sans Web";
-  font-weight: 600;
-  font-size: 17px;
-  padding: 8px 13px;
-  text-decoration: none;
-  align-items: right;
-  float:right;
-}
 .btnAdd {
   background-color: #ffffff;
   border-radius: 17px;
-  border: 1px solid #8a1538;
+  background-color: #495E57;
+  border-radius: 6px;
+  border: 1px solid white ;
+  font-weight: 500;
+  color:white;
   display: inline-block;
   cursor: pointer;
-  color: #8a1538;
+  color: white;
   font-family: "Darby Sans Web";
   font-weight: 600;
   font-size: 17px;
   padding: 8px 13px;
   text-decoration: none;
-  align-items: right;
+  
 }
 .btnAdd:hover {
-  color: white;
-  background-color: #932242;
+  color: #495E57;
+  background-color: white;
+  border: 1px solid #495E57;
+  text-decoration: none !important;
 }
 .line {
   margin-top: 50px;
@@ -65,10 +30,15 @@
   width: 200px;
   border-bottom: 1px solid #bebdbd !important;
 }
+
+.formcontrol{
+width:200px !important;
+
+}
 .appetizer {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: left;
 }
 
@@ -82,9 +52,8 @@
   padding-left: 8px;
   padding-right: 8px;
   padding-bottom: 8px;
-  margin: 10px;
-  width: 280px;
-  height: 450px;
+  margin: 30px;
+  height: 330px;
   background-color: #fff;
   border: 0px solid #ccc;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
@@ -97,7 +66,8 @@
   font-family: "Darby Sans Web" !important;
   color: #292929 !important;
   margin-top: 10px;
-  /*height: 55px;*/
+  text-align: center;
+
 }
 .cartecalories{
   font-size: 1em !important;
@@ -112,7 +82,48 @@
   color: #292929 !important;
 }
 
-/*cart*/
+/*CART*/
 .list{
   margin-bottom: 50px;
 }
+
+#footer{
+  background-color: #333333;
+}
+
+
+/*MAP*/
+.mapstyle {
+  margin-top: 20px;
+  /*margin-left: 20px;*/
+  align-items: center;
+  height: 400px;
+  width: 100%;
+  position: relative;
+}
+
+.maptitle{
+  font-size: 2.3em !important;
+  font-weight: 600 !important;
+  font-family: "Darby Sans Web" !important;
+  color:#F4CE14;
+  margin-top: 10px;
+  margin-left: 20px;
+  text-align: center;
+}
+
+/*CONFIRMATION*/
+.confirm{
+ margin-top: 50px;
+  
+}
+.confirmtitle{
+  font-size: 2.3em !important;
+  font-weight: 600 !important;
+  font-family: "Darby Sans Web" !important;
+  color: #333333;
+  margin-top: 10px;
+  margin-left: 20px;
+  text-align: center;
+}
+

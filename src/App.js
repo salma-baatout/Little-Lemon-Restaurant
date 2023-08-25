@@ -3,8 +3,12 @@ import './App.css';
 import {BrowserRouter,Route,Routes} from 'react-router-dom';
 import Home from './components/Home';
 import CartPage from './components/CartPage';
-import Reserve from './components/Reserve';
+import ReserveTable from './components/ReserveTable';
 import BookingFormContext from "./contexts/context";
+import Confirmation from "./components/Confirmation";
+import Dessert from "./components/Dessert";
+
+
 
 function App() {
   const [time, setTime] = useState('')
@@ -21,8 +25,12 @@ return (
       <BrowserRouter>
       <Routes>
       <Route path="/" element={<Home />}></Route>
+
+     
       <Route path="/CartPage" element={<CartPage />}></Route>
-      <Route path="/reserve" element={<Reserve />}></Route>
+      <Route path="/ReserveTable" element={<ReserveTable />}></Route>
+      <Route path="/confirmation" element={<Confirmation />}></Route>
+
       </Routes>
       </BrowserRouter>
       </BookingFormContext.Provider>

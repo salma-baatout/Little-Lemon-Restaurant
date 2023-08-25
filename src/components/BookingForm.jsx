@@ -4,6 +4,7 @@ import BookingFormContext from '../contexts/context';
 import { Link} from "react-router-dom";
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import "./styles/reserve.css";
 
 function BookingForm() {
   const {date,setDate, time,setTime, persons,setPersons, occasion,setOccasion , site,setSite}=useContext(BookingFormContext);
@@ -14,12 +15,12 @@ function BookingForm() {
     <div>
       <BookingFormContext.Provider value={{date,setDate, time,setTime, persons,setPersons, occasion,setOccasion , site,setSite }}>
   
-    <form>
+    <form className='formstyle'>
     <div className="form-group">
       <label className='label'>
         Date:</label>
         <DatePicker
-        className='calendar'
+        className='calendar input'
           selected={date}
           onChange={(date) => setDate(date)}
         />
@@ -29,7 +30,7 @@ function BookingForm() {
       <div className="form-group">
       <label className='label'>
         Time:</label >
-        <select className='input' value={time} onChange={e => setTime(e.target.value)}>
+        <select className='input ' value={time} onChange={e => setTime(e.target.value)}>
           <option value="" disabled>Select a time</option>
           {availableTimes.map(item => (
             <option key={item} value={item}>{item}</option>
@@ -44,9 +45,9 @@ function BookingForm() {
           value={occasion}
           onChange={(e) => setOccasion(e.target.value)}>
           <option value="" disabled>Select an occasion</option>
-          <option value="birthday">Birthday</option>
-          <option value="anniversary">Anniversary</option>
-          <option value="other">Other</option>
+          <option value="Birthday">Birthday</option>
+          <option value="Anniversary">Anniversary</option>
+          <option value="Party">Other</option>
         </select>
         </div>
 
@@ -55,12 +56,13 @@ function BookingForm() {
       <label className='label'>
         Indoor/Outdoor:</label>
         <select
-        className='input'
+        
+        className='input '
           value={site}
           onChange={(e) => setSite(e.target.value)}>
           <option value="" disabled>Select a choice</option>
-          <option value="birthday">Indoor Table</option>
-          <option value="anniversary">Outdoor Table</option>
+          <option value="Indoor">Indoor Table</option>
+          <option value="Outdoor">Outdoor Table</option>
         </select>
 
 </div>
@@ -85,7 +87,7 @@ function BookingForm() {
       <Link to="/">
       <button type="submit" className='btnReserve'>Back</button>
       </Link>
-      <Link to='/personalinfo'>
+      <Link to='/confirmation'>
       <button type="submit" className='btnReserve'>Reserve</button>
       </Link>
       </div>

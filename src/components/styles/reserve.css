@@ -1,15 +1,85 @@
 .reserve{
-/*background-image: url("https://toohotel.com/wp-content/uploads/2022/09/TOO_restaurant_Panoramique_vue_Paris_Seine_Tour_Eiffel_2.jpg");*/
-background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.73)),  url('restaurant.jpg');
-width: 100%;
+/*
+
+background-image: url("https://toohotel.com/wp-content/uploads/2022/09/TOO_restaurant_Panoramique_vue_Paris_Seine_Tour_Eiffel_2.jpg");*/
+background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.73)), url('restaurant.jpg');
+background-position: center;
 background-size: cover;
+padding: 20px;  
+max-width: 1400px;
+height:85vh;
 }
 
-
+h2{
+  color: #f5f3f3;
+  margin: 20px;
+}
 
 .text {
-    margin-top: 50px;
-    margin-bottom: 30px;
-    color: #fff;
+    margin: 20px;
+    
+    color: #f5f3f3;
     width: 90%;
+}
+
+.formstyle{
+    margin-top: 30px;
+}
+
+.label{
+    color: #f5f3f3; 
+    font-weight: 500;
+    margin-left: 20px;
+}
+.calendar{
+  
+  border-radius: 5px;  
+  color:#495E57; 
+  flex: 1;
+  margin-left: 20px;
+  margin-right: 10px;
+  width:100%;
+}
+.calendar:hover{
+    border-bottom: 3px solid #495E57;
+    transition: ease 0.2s; 
+}
+.input{
+  border-radius: 5px;  
+  color:#495E57;
+  flex: 1;
+  margin-right: 10px;
+  margin-left:70px;
+  width:80%;
+}
+
+.form-group{
+  display: flex;
+  align-items: center;
+
+}
+.input:hover{
+  border-bottom: 3px solid #495E57;
+  transition: ease 0.2s;
+}
+.btnReserve{
+  margin-left: 30px;
+  margin-right: 10px;
+
+  width: 30%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color: rgba(47, 61, 64, 0);
+  border-radius: 6px;
+  border: 1px solid #F4CE14 ;
+  font-weight: 500;
+  color:#F4CE14;
+}
+
+.btnReserve:hover{
+    color: #495E57;
+    background-color: #F4CE14;
+    border: 1px solid #495E57;
 }

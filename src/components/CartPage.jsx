@@ -1,7 +1,7 @@
 import React,{ useState,useEffect }  from 'react'
-import NavBar from './NavBar'
+import NavBarSecond from './NavBarSecond'
 import Cart from "./Cart";
-
+import "./styles/Cart.css";
 
 
 const CartPage = () => {
@@ -34,8 +34,11 @@ const CartPage = () => {
 
   return (
     <div>
-        <NavBar cart={cart}/>
+        <NavBarSecond cart={cart}/>
+        
         <Cart cart={cart} onRemoveItem={handleRemoveItem} onClearCart={handleClearCart}/>
+        
+        
     </div>
   )
 }

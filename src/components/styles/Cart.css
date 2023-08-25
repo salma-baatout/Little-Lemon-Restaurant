@@ -1,0 +1,28 @@
+/*cart*/
+
+.cart {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.list {
+display: flex;
+flex-direction: row;
+align-items: center; 
+margin-bottom: 50px;
+font-family:  "Darby Sans Web";
+font-size: larger;
+}
+
+
+.list button.btnAdd {
+  margin-left: auto; 
+  padding: 5px 10px;
+}
+.cartTitle {
+color:#333333;
+}
+
+
+

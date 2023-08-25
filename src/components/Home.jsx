@@ -1,11 +1,19 @@
 import React , { useState ,useEffect}from 'react'
-import NavBar from './NavBar'
+import NavBar2 from './NavBar2'
 import Appetizers from './Appetizers'
 import { appetizer, dessert, maincourse } from './dishes'
 import  MainCourse from './MainCourse'
 import  Dessert from './Dessert'
 import Cart from './Cart'
+import Hero from './Hero'
 import { Link } from "react-router-dom";
+import Menu from './Menu'
+import Footer2 from './Footer2'
+import MapAdress from './MapAdress'
+
+
+
+
 
 const Home = () => {
 
@@ -48,17 +56,47 @@ const Home = () => {
   return (
     <div>
     <div id="navbar">
-        <NavBar cart={cart} />
+        <NavBar2 cart={cart} />
     </div>
-    <div>
+
+    <div id="hero">
+      <Hero/>
+    </div>
+    <div id="menu">
+      <Menu data={appetizer} addToCart={addToCart}/>
+    </div>
+
+    <div id="appetizers">
+      <Appetizers data={appetizer} addToCart={addToCart}/>
+    </div>
+
+    
+    <div id="maincourse">
+      <MainCourse data={maincourse} addToCart={addToCart}/>
+    </div>
+
+    
+    <div id="dessert">
+      <Dessert data={dessert} addToCart={addToCart}/>
+    </div>
+<div>
+  <MapAdress/>
+</div>
+   
+    <div id="footer">
+      <Footer2/>
+    </div>
+{/*
+    <div id="appetizer">
     <Appetizers data={appetizer} addToCart={addToCart}/>
    </div>
-   <div>
+   <div id="main">
     <MainCourse data={maincourse} addToCart={addToCart}/>
    </div>
-   <div>
+   <div id="dessert">
     <Dessert data={dessert} addToCart={addToCart}/>
    </div>
+
 
 
    <div><Cart  cart={cart} onRemoveItem={handleRemoveItem} onClearCart={handleClearCart} /></div>
@@ -67,6 +105,11 @@ const Home = () => {
   <Link to="/CartPage">
   <button className="btnAdd">Cart ({cart ? cart.length : 0})</button>
   </Link>
+
+
+  */}
+
+
 
     </div>
   )

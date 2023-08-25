@@ -46,6 +46,9 @@ const Appetizers = (props) => {
   };
   return (
     <div className="appetizer">
+
+
+
       <div>
         <h1 className="langueTitle">Appetizers</h1>
       </div>
@@ -54,8 +57,9 @@ const Appetizers = (props) => {
 
       <div>
       <Form.Group controlId="sort-order">
-            <Form.Label>Sort by:</Form.Label>
+            <Form.Label >Sort by:</Form.Label>
             <Form.Control
+             className="formcontrol"
               as="select"
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value)}

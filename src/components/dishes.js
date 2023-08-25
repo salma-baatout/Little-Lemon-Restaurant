@@ -20,7 +20,7 @@ let appetizer=[
     
       },
       { id:3,
-        name: "Crab-Stuffed Mushrooms",
+        name: "Stuffed Mushrooms",
         calories: 220,
         price:12,
         image :'images/mushroom.png'

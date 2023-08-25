@@ -1,0 +1,55 @@
+
+.footersection {
+    background-size: 1em 1em;
+    background-color: #ffffff;
+    opacity: 0.9;
+    max-width: 1600px !important;
+    align-items: center;
+    color: #292929;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+    font-family: "Darby Sans Web";
+    font-size: larger;
+    font-weight: 600;
+  }
+  
+  .footerDiv {
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: 30px !important;
+    text-align: center !important;
+  }
+  
+  .footerlogo {
+    margin-bottom: 10px;
+  }
+  
+  .map {
+    background-color: #fcf5f7;
+  }
+  
+  .mapstyle {
+    margin-top: 20px;
+    /*margin-left: 20px;*/
+    align-items: center;
+    height: 400px;
+    width: 100%;
+    position: relative;
+  }
+
+.FooterContact {
+    text-align: justify !important;
+  }
+  .contactDetails {
+    margin-bottom: 1rem;
+  }
+  
+  .footerIcons {
+    color:#F4CE14;
+    margin-right: 10px;
+  }
+
+  .rights{
+ margin-top: 10%;
+  }

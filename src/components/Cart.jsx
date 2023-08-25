@@ -1,20 +1,21 @@
 import React from 'react'
+import "./styles/Cart.css";
 
 const Cart = ({ cart, onRemoveItem ,onClearCart }) => {
   
 
-  console.log("Cart:", cart); 
+  //console.log("Cart:", cart); 
   const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
   
    
   return (
     <div className="cart">
-      <h2>Orders</h2>
-      <ul>
+      <h2 className='cartTitle'>Orders</h2>
+      <ul className='cartlist'>
         {cart.map((item, index) => (
           <li className='list' key={index}>
             {item.name} - {item.price} $
-            <button className='btnRemove' onClick={() => onRemoveItem(item)}> Cancel </button>
+            <button className='btnAdd' onClick={() => onRemoveItem(item)}> Cancel </button>
           </li>
         ))}
       </ul>

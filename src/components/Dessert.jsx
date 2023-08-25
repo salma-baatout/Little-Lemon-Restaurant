@@ -55,6 +55,7 @@ const Dessert = (props) => {
       <Form.Group controlId="sort-order">
             <Form.Label>Sort by:</Form.Label>
             <Form.Control
+              className="formcontrol"
               as="select"
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value)}
