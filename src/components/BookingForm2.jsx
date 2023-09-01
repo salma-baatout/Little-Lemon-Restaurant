@@ -1,20 +1,22 @@
 import React, { useContext } from 'react'
 import {useState,useEffect} from 'react';
 import {BookingFormContext} from '../contexts/context';
+
 import { Link} from "react-router-dom";
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import "./styles/reserve.css";
 
-function BookingForm() {
- const {date,setDate,time,setTime, persons,setPersons, occasion,setOccasion , site,setSite}=useContext(BookingFormContext);
+function BookingForm2() {
+  const {date,setDate,time,setTime, persons,setPersons, occasion,setOccasion , site,setSite}=useContext(BookingFormContext);
+
   const [availableTimes] = useState(['8:00 PM', '9:00 PM', '10:00 PM', '11:00 PM']);
 
  
   useEffect(() => {
     // Store reservation information in localStorage
     const reservationInfo = {
-      date,
+      date : date.toISOString(), // Convert date to ISO string
       time,
       persons,
       occasion,
@@ -29,6 +31,7 @@ function BookingForm() {
   return (
 
     <div>
+      
       <BookingFormContext.Provider value={{date,setDate, time,setTime, persons,setPersons, occasion,setOccasion , site,setSite }}>
   
     <form className='formstyle'>
@@ -97,13 +100,12 @@ function BookingForm() {
       </form>
 
       </BookingFormContext.Provider>
-      
 
       <div className='bookButtons'>
       <Link to="/">
       <button type="submit" className='btnReserve'>Back</button>
       </Link>
-      <Link to='/confirmation'>
+      <Link to='/confirmation2'>
       <button type="submit" className='btnReserve'>Reserve</button>
       </Link>
       </div>
@@ -114,7 +116,7 @@ function BookingForm() {
   );
 }
 
-export default BookingForm;
+export default BookingForm2;
 
 
 

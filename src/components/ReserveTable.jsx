@@ -1,7 +1,7 @@
 import React,{ useState,useEffect } from 'react';
 import NavBarSecond from './NavBarSecond';
 import {Container,Row,Col} from 'react-bootstrap';
-import BookingForm from './BookingForm';
+import BookingForm2 from './BookingForm2';
 import "./styles/reserve.css";
 
 
@@ -30,7 +30,7 @@ const ReserveTable = () => {
 
         <Col  sm={7}>
         
-          <BookingForm/>
+          <BookingForm2/>
           
         </Col>
       </Row>

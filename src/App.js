@@ -4,9 +4,11 @@ import {BrowserRouter,Route,Routes} from 'react-router-dom';
 import Home from './components/Home';
 import CartPage from './components/CartPage';
 import ReserveTable from './components/ReserveTable';
-import BookingFormContext from "./contexts/context";
-import Confirmation from "./components/Confirmation";
-import Dessert from "./components/Dessert";
+import Finish from "./components/Finish";
+import Confirmation2 from "./components/Confirmation";
+import {BookingFormContext,PersonalContext} from "./contexts/context";
+
+
 
 
 
@@ -21,7 +23,8 @@ function App() {
   const [phone, setPhone] = useState('');
 return (
     <div>
-      <BookingFormContext.Provider value={{date,setDate, time,setTime, persons,setPersons, occasion,setOccasion , site,setSite }}>
+      <BookingFormContext.Provider value={{date,setDate, time,setTime, persons,setPersons, occasion,setOccasion , site,setSite, }}>
+      <PersonalContext.Provider value={{name,setName,email,setEmail,phone,setPhone}}>
       <BrowserRouter>
       <Routes>
       <Route path="/" element={<Home />}></Route>
@@ -29,11 +32,15 @@ return (
      
       <Route path="/CartPage" element={<CartPage />}></Route>
       <Route path="/ReserveTable" element={<ReserveTable />}></Route>
-      <Route path="/confirmation" element={<Confirmation />}></Route>
+      <Route path="/confirmation2" element={<Confirmation2 />}></Route>
+      <Route path="/finish" element={<Finish />}></Route>
+
 
       </Routes>
       </BrowserRouter>
+      </PersonalContext.Provider>
       </BookingFormContext.Provider>
+
     </div>
   );
 }
