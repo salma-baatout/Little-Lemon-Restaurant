@@ -5,7 +5,7 @@ import Home from './components/Home';
 import CartPage from './components/CartPage';
 import ReserveTable from './components/ReserveTable';
 import Finish from "./components/Finish";
-import Confirmation2 from "./components/Confirmation";
+import Confirmation2 from "./components/Confirmation2";
 import {BookingFormContext,PersonalContext} from "./contexts/context";
 
 

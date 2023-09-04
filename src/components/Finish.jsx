@@ -34,8 +34,6 @@ const { date, time, occasion, site, persons } = reservationInfo;
   const { name,email,phone } = personalInfo;
   console.log("personal info", personalInfo );
 
-
-
   return (
     <div>
       <h1> Welcome to Little Lemon restaurant {name } </h1>

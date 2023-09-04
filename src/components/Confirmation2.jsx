@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import {PersonalContext} from '../contexts/context';
 import NavBarSecond from './NavBarSecond';
 import { Link} from "react-router-dom";
@@ -8,7 +8,7 @@ import "./styles/reserve.css";
 const Confirmation2 = () => {
 
   const {name,setName,email,setEmail,phone,setPhone}=useContext(PersonalContext);
-
+  
   useEffect(() => {
     // Store personal information in localStorage
     const personalInfo = {
@@ -21,16 +21,30 @@ const Confirmation2 = () => {
     localStorage.setItem('personalInfo', JSON.stringify(personalInfo));
   }, [name,email,phone]);
 
-  console.log("personal info", personalInfo );
-
-
-    // Retrieve the stored reservation information from localStorage
-    const [reservationInfo] = useState(() => {
-        const storedReservationInfo = localStorage.getItem('reservationInfo');
-        return storedReservationInfo ? JSON.parse(storedReservationInfo) : {};
-      });
+   // Retrieve the stored reservation information from localStorage
+    //const [reservationInfo] = useState(() => {
+        //const storedReservationInfo = localStorage.getItem('reservationInfo');
+        //return storedReservationInfo ? JSON.parse(storedReservationInfo) : {};
+    //  });
     // Destructure the reservation information
+
+
+    
+  const [reservationInfo] = useState(() => {
+    const storedReservationInfo = localStorage.getItem('reservationInfo');
+    if (storedReservationInfo) {
+      const parsedInfo = JSON.parse(storedReservationInfo);
+      // Parse the stored date back to a Date object
+      parsedInfo.date = new Date(parsedInfo.date);
+      return parsedInfo;
+    } else {
+      return {};
+    }
+  });
+    console.log("reservation infos", reservationInfo );
+
     const { date, time, occasion, site, persons } = reservationInfo;
+
 
 
     const [cart] = useState(() => {
@@ -50,7 +64,8 @@ const Confirmation2 = () => {
         <div className='row'>
             <div className='col-md-6'>
             <h2 className='confirmtitle'>Confirm your reservation to celebrate your  <span style={{ color: "#F4CE14" }}>{reservationInfo.occasion}</span> </h2>
-            <p className='cartetitre'>On <span style={{ color: "#F4CE14" }}> {date?.toLocaleDateString() }</span></p>
+      <p className='cartetitre'>On <span style={{ color: "#F4CE14" }}> {date?.toLocaleDateString() }</span> </p>
+            
             <p className='cartetitre'>At<span style={{ color: "#F4CE14" }}>{time }</span> </p>
             <p className='cartetitre'>An <span style={{ color: "#F4CE14" }}>{site}</span> table for  <span style={{ color: "#F4CE14" }}> {persons}</span> persons</p>
             </div>
@@ -65,11 +80,14 @@ const Confirmation2 = () => {
         <input className='input' type="text" id="username" required minLength="2" value={name} onChange={e => setName(e.target.value)} />
       </label>
       <br />
+      
       <label>
         Email:
-        <input className='input' type="email" value={email} onChange={e => setEmail(e.target.value)} />
+        <input className='input' type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value={email} onChange={e => setEmail(e.target.value)} />
+        
       </label>
       <br />
+
       <label>
         Phone:
         <input className='input' type="tel"  value={phone} onChange={e => setPhone(e.target.value)} />

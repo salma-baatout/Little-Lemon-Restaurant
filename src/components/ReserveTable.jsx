@@ -30,7 +30,7 @@ const ReserveTable = () => {
 
         <Col  sm={7}>
         
-          <BookingForm2/>
+        <BookingForm2/>
           
         </Col>
       </Row>

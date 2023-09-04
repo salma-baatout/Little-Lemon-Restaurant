@@ -105,7 +105,7 @@ function BookingForm2() {
       <Link to="/">
       <button type="submit" className='btnReserve'>Back</button>
       </Link>
-      <Link to='/confirmation2'>
+      <Link to='/Confirmation2'>
       <button type="submit" className='btnReserve'>Reserve</button>
       </Link>
       </div>

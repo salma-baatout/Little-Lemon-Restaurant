@@ -10,7 +10,7 @@ const Cart = ({ cart, onRemoveItem ,onClearCart }) => {
    
   return (
     <div className="cart">
-      <h2 className='cartTitle'>Orders</h2>
+      <h2 className='cartTitle'>Your Orders</h2>
       <ul className='cartlist'>
         {cart.map((item, index) => (
           <li className='list' key={index}>
